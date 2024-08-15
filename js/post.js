@@ -26,7 +26,7 @@ document.getElementById('workForm').addEventListener('submit', function(e) {
     console.log('Собранные данные:', data); // Проверочный вывод в консоль
 
     // Отправляем данные в Google Sheets
-    fetch('https://script.google.com/macros/s/AKfycbxOq39qv3z7vfqhwadm60GGqjz3PfyTF8MPRGM58LeFveC3uddWU5x5tq3fZTQPK0uv/exec', {
+    fetch('https://script.google.com/macros/s/AKfycbyw_wcCLbeCgBmfaGL1yqUSBJhKMxkli5dcbJ2237qQn-PLsnxiaTnhqjm_CoFNzRGX/exec', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
