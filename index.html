@@ -49,7 +49,7 @@
 
                 <div id="workItems">
                     <div class="work-item d-flex align-items-center mb-3">
-                        <select class="form-select work-type" name="workType" required>
+                        <select class="form-select work-type" name="workType[]" required>
                             <option value="" disabled selected>Выберите работу</option>
                             <option value="Монтаж забора">Монтаж забора</option>
                             <option value="Монтаж конструкции">Монтаж конструкции</option>
@@ -58,8 +58,8 @@
                             <option value="Поправки ног">Поправки ног</option>
                             <option value="Other">Другое</option>
                         </select>
-                        <input type="number" class="form-control work-time ms-2" name="workTime" placeholder="Часы" min="1" max="12" required>
-                        <input type="text" class="form-control other-work-input ms-2" name="otherWork" placeholder="Уточните работу" style="display: none;">
+                        <input type="number" class="form-control work-time ms-2" name="workTime[]" placeholder="Часы" min="1" max="12" required>
+                        <input type="text" class="form-control other-work-input ms-2" name="otherWork[]" placeholder="Уточните работу" style="display: none;">
                         <button type="button" class="btn btn-danger ms-2 btn-remove-work"><i class="fas fa-trash-alt"></i></button>
                     </div>
                 </div>
