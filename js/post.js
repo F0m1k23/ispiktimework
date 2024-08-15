@@ -1,31 +1,34 @@
-const scriptURL = 'https://script.google.com/macros/s/AKfycbz1Uyy70zITbOfbJ7b6EXlT9t6ORSBdUYFTt7RAvxVxK21XdcJrloZ6faG6MwkZxdkbeg/exec';
-const form = document.forms['submit-to-google-sheet'];
+document.getElementById('workForm').addEventListener('submit', function(event) {
+    event.preventDefault();
 
-form.addEventListener('submit', e => {
-  e.preventDefault();
-  const formData = new FormData(form);
-  const data = {
-    name: formData.get('name'),
-    date: formData.get('date'),
-    workItems: [],
-    vehicle: formData.get('vehicle'),
-    themeToggle: formData.get('themeToggle') === 'on',
-    language: formData.get('language')
-  };
+    const form = event.target;
+    const formData = new FormData(form);
 
-  // Собираем данные о работах
-  document.querySelectorAll('.work-item').forEach(item => {
-    const workType = item.querySelector('.work-type').value;
-    const workTime = item.querySelector('.work-time').value;
-    data.workItems.push({
-      workType: workType,
-      workTime: workTime
-    });
-  });
+    const data = {
+        name: formData.get('name'),
+        date: formData.get('date'),
+        workType: formData.get('workType'),
+        workTime: formData.get('workTime'),
+        otherWork: formData.get('otherWork'),
+        vehicle: formData.get('vehicle'),
+        themeToggle: formData.get('themeToggle'),
+        language: formData.get('language')
+    };
 
-  // Отправляем данные
-  fetch(scriptURL, { method: 'POST', body: JSON.stringify(data), headers: { 'Content-Type': 'application/json' } })
+    fetch('https://script.google.com/macros/s/AKfycbw13JnkTJevmcwaKyCv-94Mf2vqVDs1xR0H9O9firQucjFb_Lg-4FyjV-5im2ocMqcqxA/exec', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    })
     .then(response => response.json())
-    .then(result => console.log('Success:', result))
-    .catch(error => console.error('Error:', error));
+    .then(result => {
+        console.log('Success:', result);
+        // Дополнительно, очистите форму или покажите сообщение пользователю
+        form.reset();
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
 });
