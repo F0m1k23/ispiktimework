@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учет рабочего времени</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <div class="card p-4">
+            <h1 id="title" class="text-center">Учет рабочего времени</h1>
+            <form id="workForm" name="submit-to-google-sheet">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Имя</label>
+                    <select id="name" class="form-select" name="name" required>
+                        <option selected value="" disabled>Ваше имя</option>
+                        <!-- Добавлены все имена -->
+                        <option value="ERGASHALIEV_KHURSHIDBEK">Ergashaliev Khurshidbek</option>
+                        <option value="FOMENKO_VITALII">Fomenko Vitalii</option>
+                        <option value="BIRUK_RUSLAN">Biruk Ruslan</option>
+                        <option value="ZHAKEN_SABIT">Zhaken Sabit</option>
+                        <option value="NAGORNYAK_VADIM">Nagornyak Vadim</option>
+                        <option value="YARMASHUK_NAZAR">Yarmashuk Nazar</option>
+                        <option value="BUTAEV_MIRSAID">Butaev Mirsaid</option>
+                        <option value="ANDRUKHOV_OLEKSANDR">Andrukhov Oleksandr</option>
+                        <option value="BARANIUK_DENIS">Baraniuk Denis</option>
+                        <option value="BONDARENKO_OLEKSANDR">Bondarenko Oleksandr</option>
+                        <option value="HORDIENKO_OŁEKSII">Hordienko Ołeksii</option>
+                        <option value="KOMAROV_VASYL">Komarov Vasyl</option>
+                        <option value="MAZUR_LEV">Mazur Lev</option>
+                        <option value="PYVOVAR_YURII">Pyvovar Yurii</option>
+                        <option value="SAPRUN_PAVLO">Saprun Pavlo</option>
+                        <option value="CHORNII_OLEKSANDR">Chornii Oleksandr</option>
+                        <option value="LALAMEDOV_SHABEK">Lalamedov Shabek</option>
+                        <option value="MAZUR_DMITRO">Mazur Dmitro</option>
+                        <option value="SHEBETS_MYROSLAV">Shebets Myroslav</option>
+                        <option value="TUIEV_YURII">Tuiev Yurii</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="date" class="form-label">Дата</label>
+                    <input type="date" id="date" class="form-control" name="date" required>
+                </div>
+
+                <div id="workItems">
+                    <div class="work-item d-flex align-items-center mb-3">
+                        <select class="form-select work-type" name="workType" required>
+                            <option value="" disabled selected>Выберите работу</option>
+                            <option value="Монтаж забора">Монтаж забора</option>
+                            <option value="Монтаж конструкции">Монтаж конструкции</option>
+                            <option value="Монтаж заземления">Монтаж заземления</option>
+                            <option value="Монтаж кабеля">Монтаж кабеля</option>
+                            <option value="Поправки ног">Поправки ног</option>
+                            <option value="Other">Другое</option>
+                        </select>
+                        <input type="number" class="form-control work-time ms-2" name="workTime" placeholder="Часы" min="1" max="12" required>
+                        <input type="text" class="form-control other-work-input ms-2" name="otherWork" placeholder="Уточните работу" style="display: none;">
+                        <button type="button" class="btn btn-danger ms-2 btn-remove-work"><i class="fas fa-trash-alt"></i></button>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <button type="button" id="addWorkButton" class="btn btn-primary"><i class="fas fa-plus"></i> Добавить работу</button>
+                </div>
+
+                <div class="mb-3">
+                    <label for="vehicle" class="form-label">Машина</label>
+                    <select id="vehicle" class="form-select" name="vehicle" required>
+                        <option selected value="none">Не водитель</option>
+                        <option value="WE1AT40">WE1AT40</option>
+                        <option value="CB628MY">CB628MY</option>
+                        <option value="GWE0248U">GWE0248U</option>
+                        <option value="GWE0247U">GWE0247U</option>
+                        <option value="GA810KE">GA810KE</option>
+                    </select>
+                </div>
+
+                <div class="mb-3 d-flex justify-content-between align-items-center">
+                    <label for="themeToggle" class="form-label me-2">Темная тема</label>
+                    <input type="checkbox" id="themeToggle" class="form-check-input" name="themeToggle">
+                </div>
+
+                <div class="mb-3">
+                    <label for="language" class="form-label">Язык</label>
+                    <select id="language" class="form-select" name="language">
+                        <option value="ru" selected>Русский</option>
+                        <option value="uk">Українська</option>
+                        <option value="pl">Polski</option>
+                        <option value="uz">O‘zbekcha</option>
+                    </select>
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" id="submitButton" class="btn btn-success">Отправить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/js/all.min.js"></script>
+    <script src="./js/post.js"></script>
+    <script src="./js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+.container {
+    max-width: 600px;
+}
+
+.card {
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#title {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.form-select,
+.form-control {
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+#submitButton {
+    width: 100%;
+    padding: 12px;
+}
+
+.dark-theme {
+    background-color: #343a40;
+    color: #ffffff;
+}
+
+.dark-theme .card {
+    background-color: #495057;
+    color: #ffffff;
+}
+
+.dark-theme .form-select,
+.dark-theme .form-control {
+    background-color: #6c757d;
+    color: #ffffff;
+    border-color: #495057;
+}
+
+.dark-theme #submitButton {
+    background-color: #198754;
+}
+
+.work-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.work-time {
+    max-width: 80px;
+}
+
+.other-work-input {
+    flex-grow: 1;
+}
+
+.btn-remove-work {
+    padding: 6px 12px;
+}
+
+#addWorkButton {
+    width: 100%;
+    padding: 12px;
+}
+
+#submitButton {
+    margin-top: 20px;
+}
