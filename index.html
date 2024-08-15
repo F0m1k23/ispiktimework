@@ -11,12 +11,14 @@
     <div class="container mt-4">
         <div class="card p-4">
             <h1 id="title" class="text-center">Учет рабочего времени</h1>
-            <form id="workForm"  method="POST" data-netlify="true">
+            <form id="workForm" name="workForm" method="POST" data-netlify="true">
+                <!-- Hidden field to help Netlify identify the form -->
+                <input type="hidden" name="form-name" value="workForm">
+
                 <div class="mb-3">
                     <label for="name" class="form-label">Имя</label>
                     <select id="name" class="form-select" name="name" required>
                         <option selected value="" disabled>Ваше имя</option>
-                        <!-- Добавлены все имена -->
                         <option value="ERGASHALIEV_KHURSHIDBEK">Ergashaliev Khurshidbek</option>
                         <option value="FOMENKO_VITALII">Fomenko Vitalii</option>
                         <option value="BIRUK_RUSLAN">Biruk Ruslan</option>
@@ -44,7 +46,7 @@
                     <label for="date" class="form-label">Дата</label>
                     <input type="date" id="date" class="form-control" name="date" required>
                 </div>
-<input type="hidden" name="form-name" value="contact">
+
                 <div id="workItems">
                     <div class="work-item d-flex align-items-center mb-3">
                         <select class="form-select work-type" name="workType" required>
@@ -101,7 +103,6 @@
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/js/all.min.js"></script>
-<!--     <script src="./js/post.js"></script> -->
     <script src="./js/app.js"></script>
 </body>
 </html>
